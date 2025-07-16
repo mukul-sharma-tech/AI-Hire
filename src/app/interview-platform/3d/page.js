@@ -1261,6 +1261,7 @@ function InterviewContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const level = searchParams.get("level") || "";
   const questions = JSON.parse(searchParams.get("questions") || "[]");
   const interviewType = searchParams.get("interviewType") || "";
 
@@ -1466,7 +1467,8 @@ function InterviewContent() {
     } else {
       // For final submission, keep mic off
       setAutoMicEnabled(false);
-      router.push(`/interview-platform/result?data=${encodeURIComponent(JSON.stringify(updatedQaPairs))}&type=${interviewType}`);
+      // router.push(`/interview-platform/result?data=${encodeURIComponent(JSON.stringify(updatedQaPairs))}&type=${interviewType}`);
+      router.push(`/interview-platform/result?data=${encodeURIComponent(JSON.stringify(updatedQaPairs))}&type=${interviewType}&level=${level}`);
     }
   };
 

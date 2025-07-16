@@ -452,15 +452,227 @@
 
 
 
+// 'use client';
+
+// import { motion } from 'framer-motion';
+// import Link from 'next/link';
+// import { FiArrowRight, FiUser, FiBriefcase, FiMic, FiVideo, FiFileText, FiCheckCircle , FiSmartphone} from 'react-icons/fi';
+
+// export default function Home() {
+//   return (
+//     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white overflow-hidden">
+//       {/* Main Content */}
+//       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
+//         {/* Header */}
+//         <motion.div 
+//           initial={{ opacity: 0, y: -20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           className="max-w-4xl w-full text-center space-y-10"
+//         >
+//           <motion.h1
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             transition={{ delay: 0.2, duration: 0.8 }}
+//             className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600"
+//           >
+//             AI Hire Platform
+//           </motion.h1>
+
+//           <motion.p 
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             transition={{ delay: 0.3, duration: 0.8 }}
+//             className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto"
+//           >
+//             Revolutionizing recruitment with AI-powered screening, resume analysis, and intelligent interviews.
+//           </motion.p>
+
+//           {/* Action Buttons */}
+//           <motion.div 
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ delay: 0.6, duration: 0.8 }}
+//             className="flex flex-wrap justify-center gap-4 sm:gap-6"
+//           >
+//             <Link
+//               href="/auth/login"
+//               className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-cyan-500/20 text-sm sm:text-base"
+//             >
+//               <FiUser /> Login
+//             </Link>
+
+//             <Link
+//               href="/auth/signup"
+//               className="flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-white/20 text-sm sm:text-base"
+//             >
+//               <FiBriefcase /> Sign Up
+//             </Link>
+
+//             <Link
+//               href="/interview-platform/choosetype"
+//               className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-purple-500/20 text-sm sm:text-base"
+//             >
+//               <FiMic /> Try Interview
+//             </Link>
+
+//             <Link
+//               href="/ats-score-checker"
+//               className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
+//             >
+//               <FiCheckCircle /> ATS Checker
+//             </Link>
+//           </motion.div>
+
+// 'use client';
+
+// import { motion } from 'framer-motion';
+// import Link from 'next/link';
+// import { FiArrowRight, FiUser, FiBriefcase, FiMic, FiVideo, FiFileText, FiCheckCircle, FiSmartphone, FiHome } from 'react-icons/fi';
+// import { useEffect, useState } from 'react';
+// import supabase from '@/lib/supabaseClient';
+
+// export default function Home() {
+//   const [user, setUser] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     // Check for existing session
+//     const getSession = async () => {
+//       const { data: { session } } = await supabase.auth.getSession();
+//       if (session) {
+//         setUser(session.user);
+//       }
+//       setLoading(false);
+//     };
+
+//     getSession();
+
+//     // Listen for auth state changes
+//     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+//       setUser(session?.user || null);
+//     });
+
+//     return () => subscription.unsubscribe();
+//   }, []);
+
+//   if (loading) {
+//     return (
+//       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 flex items-center justify-center">
+//         <div className="text-white">Loading...</div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white overflow-hidden">
+//       {/* Main Content */}
+//       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
+//         {/* Header */}
+//         <motion.div 
+//           initial={{ opacity: 0, y: -20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           className="max-w-4xl w-full text-center space-y-10"
+//         >
+//           <motion.h1
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             transition={{ delay: 0.2, duration: 0.8 }}
+//             className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600"
+//           >
+//             AI Hire Platform
+//           </motion.h1>
+
+
 'use client';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FiArrowRight, FiUser, FiBriefcase, FiMic, FiVideo, FiFileText, FiCheckCircle , FiSmartphone} from 'react-icons/fi';
+import { FiArrowRight, FiUser, FiBriefcase, FiMic, FiVideo, FiFileText, FiCheckCircle, FiSmartphone, FiHome, FiLogOut } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
+import supabase from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const getSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        setUser(session.user);
+      }
+      setLoading(false);
+    };
+
+    getSession();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      router.push('/');
+    } catch (error) {
+      console.error('Error logging out:', error.message);
+    }
+  };
+
+  const getUserInitial = () => {
+    if (!user) return '';
+    // Use first letter of name if available, otherwise use first letter of email
+    return (user.user_metadata?.name?.[0] || user.email?.[0] || 'U').toUpperCase();
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 flex items-center justify-center">
+        <div className="text-white">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white overflow-hidden">
+      {/* User Profile Section - Top Right */}
+      {user && (
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="fixed top-4 right-4 z-50 flex items-center gap-3 bg-gray-900/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-800 shadow-lg"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold">
+              {getUserInitial()}
+            </div>
+            <div className="text-sm">
+              <div className="font-medium">
+                {user.user_metadata?.name || user.email?.split('@')[0]}
+              </div>
+              <div className="text-xs text-gray-400 capitalize">
+                {user.user_metadata?.role || 'user'}
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+            title="Logout"
+          >
+            <FiLogOut className="text-gray-300 hover:text-white" />
+          </button>
+        </motion.div>
+      )}
+
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
         {/* Header */}
@@ -478,7 +690,6 @@ export default function Home() {
           >
             AI Hire Platform
           </motion.h1>
-
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -495,33 +706,55 @@ export default function Home() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-wrap justify-center gap-4 sm:gap-6"
           >
-            <Link
-              href="/auth/login"
-              className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-cyan-500/20 text-sm sm:text-base"
-            >
-              <FiUser /> Login
-            </Link>
-
-            <Link
-              href="/auth/signup"
-              className="flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-white/20 text-sm sm:text-base"
-            >
-              <FiBriefcase /> Sign Up
-            </Link>
-
-            <Link
-              href="/interview-platform/choosetype"
-              className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-purple-500/20 text-sm sm:text-base"
-            >
-              <FiMic /> Try Interview
-            </Link>
-
-            <Link
-              href="/ats-score-checker"
-              className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
-            >
-              <FiCheckCircle /> ATS Checker
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  href={user.user_metadata?.role === 'manager' ? '/dashboard/manager' : '/dashboard/candidate'}
+                  className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-indigo-500/20 text-sm sm:text-base"
+                >
+                  <FiHome /> Go to Dashboard
+                </Link>
+                <Link
+                  href="/interview-platform/choosetype"
+                  className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-purple-500/20 text-sm sm:text-base"
+                >
+                  <FiMic /> Try Interview
+                </Link>
+                <Link
+                  href="/ats-score-checker"
+                  className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
+                >
+                  <FiCheckCircle /> ATS Checker
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/auth/login"
+                  className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-cyan-500/20 text-sm sm:text-base"
+                >
+                  <FiUser /> Login
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  className="flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-white/20 text-sm sm:text-base"
+                >
+                  <FiBriefcase /> Sign Up
+                </Link>
+                <Link
+                  href="/interview-platform/choosetype"
+                  className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-purple-500/20 text-sm sm:text-base"
+                >
+                  <FiMic /> Try Interview
+                </Link>
+                <Link
+                  href="/ats-score-checker"
+                  className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
+                >
+                  <FiCheckCircle /> ATS Checker
+                </Link>
+              </>
+            )}
           </motion.div>
         </motion.div>
 

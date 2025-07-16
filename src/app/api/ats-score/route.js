@@ -8,22 +8,33 @@ export async function POST(req) {
   const { jdText, resumeText } = await req.json();
 
   const prompt = `
-You are an ATS (Applicant Tracking System) evaluator.
+You are an expert ATS (Applicant Tracking System) resume evaluator.
 
-Compare the resume to the job description.
+Given the following job description and resume, analyze and return the following in clear bullet points:
 
-### TASKS:
-1. Match skills, tools, technologies, and experience.
-2. Identify missing keywords or skills.
-3. Suggest how to improve the resume.
-4. Give an ATS match score out of 100.
-5. Explain the score in detail.
+---
 
-### JOB DESCRIPTION:
+### Output Format:
+1. **ATS Match Score** (0 to 100) — based on skills, experience, and keywords.
+2. **Matched Keywords** — list keywords or phrases that were matched.
+3. **Missing Keywords** — important items in JD not found in resume.
+4. **Skill Match Summary** — analyze alignment between job requirements and candidate experience.
+5. **Improvement Suggestions** — practical, actionable advice to make the resume more relevant.
+6. **Short Justification of Score** — 2-3 lines summarizing the evaluation.
+
+---
+
+### Job Description:
 ${jdText}
 
-### RESUME:
+---
+
+### Resume:
 ${resumeText}
+
+---
+
+Use bullet points or clear sections in your response. Be concise, factual, and structured like a professional ATS tool.
 `;
 
   try {

@@ -178,40 +178,74 @@ function ResultContent() {
 
   const [report, setReport] = useState("");
   const [loading, setLoading] = useState(true);
+
   const [interviewType, setInterviewType] = useState("");
+  const [level, setLevel] = useState("");
+
+  
   const [qaPairs, setQaPairs] = useState([]);
+
+  // useEffect(() => {
+  //   const data = searchParams.get("data");
+  //   const type = searchParams.get("type") || "Technical";
+  //   const level = searchParams.get("level") || "Unspecified"; // <--- ADD THIS
+
+
+  //   if (!data) {
+  //     router.push("/");
+  //     return;
+  //   }
+
+  //   try {
+  //     const parsed = JSON.parse(decodeURIComponent(data));
+  //     setQaPairs(parsed);
+  //     setInterviewType(type);
+  //   } catch (err) {
+  //     console.error("Error parsing data from query:", err);
+  //     router.push("/");
+  //   }
+  // }, [searchParams, router]);
+
 
   useEffect(() => {
     const data = searchParams.get("data");
     const type = searchParams.get("type") || "Technical";
-
+    const level = searchParams.get("level") || "Unspecified"; // <-- still fine here
+  
     if (!data) {
       router.push("/");
       return;
     }
-
+  
     try {
       const parsed = JSON.parse(decodeURIComponent(data));
       setQaPairs(parsed);
       setInterviewType(type);
+      setLevel(level); // <-- ADD THIS
     } catch (err) {
       console.error("Error parsing data from query:", err);
       router.push("/");
     }
   }, [searchParams, router]);
-
+  
   useEffect(() => {
     if (qaPairs.length === 0) return;
 
     const generateReport = async () => {
       setLoading(true);
       try {
+        // const res = await fetch("/api/generate-report", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({ qaPairs, interviewType }),
+        // });
+
         const res = await fetch("/api/generate-report", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ qaPairs, interviewType }),
+          body: JSON.stringify({ qaPairs, interviewType, level }), // <--- PASS level here
         });
-
+        
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Error from API");
 
@@ -264,8 +298,8 @@ function ResultContent() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-blue-800">Interview Report</h1>
-          <h2 className="text-xl text-blue-600 mt-2">Role: {interviewType}</h2>
-        </div>
+          <h2 className="text-xl text-blue-600 mt-2">Role: {interviewType} ({level} Level)</h2>
+          </div>
 
         {loading ? (
           <div className="text-center py-20">
