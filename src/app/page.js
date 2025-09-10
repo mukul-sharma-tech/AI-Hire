@@ -189,6 +189,25 @@ export default function Home() {
                 >
                   <FiCheckCircle /> ATS Checker
                 </Link>
+<Link
+                  href="/career-path"
+                  className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
+                >
+                  <FiCheckCircle /> Career Path Planner
+                </Link>
+                                <Link
+                  href="/interview-preparation"
+                  className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
+                >
+                  <FiCheckCircle /> Last Min InterviewPrep
+                </Link>
+
+                <Link
+                  href="/hackathon-mentor"
+                  className="flex items-center gap-2 bg-gradient-to-r from-red-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-2xl transition duration-200 shadow-lg hover:shadow-green-500/20 text-sm sm:text-base"
+                >
+                  <FiCheckCircle /> Hackathon Mentor
+                </Link>
               </>
             )}
           </motion.div>
