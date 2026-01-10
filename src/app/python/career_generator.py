@@ -86,7 +86,7 @@ def generate_career_path(stage, institution, field, background):
     for key in api_keys:
         try:
             llm = ChatGoogleGenerativeAI(
-                model="gemini-2.0-flash",
+                model="gemini-2.0-flash-latest",
                 google_api_key=key,
                 temperature=0.6
             )

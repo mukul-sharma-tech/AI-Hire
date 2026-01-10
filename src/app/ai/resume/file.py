@@ -24,7 +24,7 @@ def analyze_resume(job_description: str, resume: str):
     # 1. Configure the LLM and Embedding Models
     # Make sure your GOOGLE_API_KEY is set in the .env file
     try:
-        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", temperature=0.3)
+        llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-latest", temperature=0.3)
         embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
         print("✅ Models configured successfully.")
     except Exception as e:

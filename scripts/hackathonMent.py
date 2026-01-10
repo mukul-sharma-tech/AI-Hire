@@ -76,7 +76,7 @@ def generate_hackathon_plan(theme, problem_statement):
         for key in api_keys:
             try:
                 llm = ChatGoogleGenerativeAI(
-                    model="gemini-1.5-flash-latest",
+                    model="gemini-2.0-flash",
                     google_api_key=key,
                     temperature=0.7,  # Higher temperature for more creative ideas
                     generation_config={"response_mime_type": "application/json"}

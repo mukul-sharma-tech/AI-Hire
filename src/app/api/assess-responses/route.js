@@ -12,7 +12,7 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Job description and conversation are required' }, { status: 400 });
     }
 
-    const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'models/gemini-2.0-flash' });
 
     // Format conversation for analysis
     const conversationText = conversation

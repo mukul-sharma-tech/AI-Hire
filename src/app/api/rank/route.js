@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 const API_KEYS = [
   process.env.GEMINI_API_KEY,
-  process.env.GEMINI_API_KEY2,
-  process.env.GEMINI_API_KEY3,
-  process.env.GEMINI_API_KEY4,
+  // process.env.GEMINI_API_KEY2,
+  // process.env.GEMINI_API_KEY3,
+  // process.env.GEMINI_API_KEY4,
 ];
 
 // Gemini scoring prompt template
@@ -35,7 +35,7 @@ export async function POST(req) {
       for (const key of API_KEYS) {
         try {
           const genAI = new GoogleGenerativeAI(key);
-          const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
+          const model = genAI.getGenerativeModel({ model: 'models/gemini-2.0-flash' });
 
           const result = await model.generateContent(getPrompt(jd, res.text, index));
           const text = result.response.text();

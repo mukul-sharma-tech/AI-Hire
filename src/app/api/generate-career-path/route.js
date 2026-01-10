@@ -58,3 +58,35 @@ export async function POST(request) {
     }
 }
 
+
+
+
+// # from http.server import BaseHTTPRequestHandler
+// # import json
+// # from python.career_generator import generate_career_plan
+
+// # class handler(BaseHTTPRequestHandler):
+// #     def do_POST(self):
+// #         try:
+// #             content_length = int(self.headers['Content-Length'])
+// #             post_data = self.rfile.read(content_length)
+// #             data = json.loads(post_data)
+            
+// #             result_json = generate_career_plan(
+// #                 stage=data.get('stage'),
+// #                 institution=data.get('institution'),
+// #                 field=data.get('field'),
+// #                 background=data.get('background')
+// #             )
+            
+// #             self.send_response(200)
+// #             self.send_header('Content-type', 'application/json')
+// #             self.end_headers()
+// #             self.wfile.write(json.dumps(result_json).encode('utf-8'))
+            
+// #         except Exception as e:
+// #             self.send_response(500)
+// #             self.send_header('Content-type', 'application/json')
+// #             self.end_headers()
+// #             self.wfile.write(json.dumps({'error': str(e)}).encode('utf-8'))
+

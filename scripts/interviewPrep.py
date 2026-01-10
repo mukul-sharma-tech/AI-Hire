@@ -86,7 +86,7 @@ def generate_interview_roadmap(company, position, level, interview_type, intervi
         for key in api_keys:
             try:
                 llm = ChatGoogleGenerativeAI(
-                    model="gemini-1.5-flash-latest",
+                    model="gemini-2.0-flash",
                     google_api_key=key,
                     temperature=0.5,
                     generation_config={"response_mime_type": "application/json"}

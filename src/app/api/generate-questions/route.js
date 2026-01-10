@@ -45,7 +45,7 @@ ${jobDescription}
     for (const key of API_KEYS) {
       try {
         const genAI = new GoogleGenerativeAI(key);
-        const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'models/gemini-2.0-flash' });
 
         const result = await model.generateContent(prompt);
         const text = result.response.text();
